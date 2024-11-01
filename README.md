@@ -46,7 +46,7 @@ cd FlashBack
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](link-to-issues).
+Contributions, issues, and feature requests are welcome! 
 
 ## 📝 License
 
