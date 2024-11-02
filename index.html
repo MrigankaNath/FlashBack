@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheFlashBackGame</title>
+    <title>FlashBack</title>
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <h1>FlashBack</h1>
-    <h2>Press any key to start!</h2>
-
-    <div class="cube-container">
-        <div class="cube-row">
-            <div class="cube-face crimson" type="button" id="crimson"></div>
-            <div class="cube-face azure" type="button" id="azure"></div>
+    <div class="game-container">
+        <h1>FlashBack</h1>
+        <h2>Press any key to start!</h2>
+        
+        <div class="difficulty-controls">
+            <h3>Select Difficulty</h3>
+            <div class="difficulty-buttons">
+                <button class="difficulty-btn easy" data-speed="800" data-multiplier="1">Easy</button>
+                <button class="difficulty-btn medium active" data-speed="500" data-multiplier="2">Medium</button>
+                <button class="difficulty-btn hard" data-speed="300" data-multiplier="3">Hard</button>
+            </div>
         </div>
-        <div class="cube-row">
-            <div class="cube-face emerald" type="button" id="emerald"></div>
-            <div class="cube-face amber" type="button" id="amber"></div>
+
+        <div class="cube-container">
+            <div class="cube-row">
+                <div class="cube-face crimson" type="button" id="crimson">1</div>
+                <div class="cube-face azure" type="button" id="azure">2</div>
+            </div>
+            <div class="cube-row">
+                <div class="cube-face emerald" type="button" id="emerald">3</div>
+                <div class="cube-face amber" type="button" id="amber">4</div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
