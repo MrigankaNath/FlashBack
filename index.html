@@ -10,16 +10,6 @@
     <div class="game-container">
         <h1>FlashBack</h1>
         <h2>Press any key to start!</h2>
-        
-        <div class="difficulty-controls">
-            <h3>Select Difficulty</h3>
-            <div class="difficulty-buttons">
-                <button class="difficulty-btn easy" data-speed="800" data-multiplier="1">Easy</button>
-                <button class="difficulty-btn medium active" data-speed="500" data-multiplier="2">Medium</button>
-                <button class="difficulty-btn hard" data-speed="300" data-multiplier="3">Hard</button>
-            </div>
-        </div>
-
         <div class="cube-container">
             <div class="cube-row">
                 <div class="cube-face crimson" type="button" id="crimson">1</div>
@@ -31,6 +21,13 @@
             </div>
         </div>
     </div>
+
+    
+    <audio id="cube-flash" src="sounds/cube_flash.mp3"></audio>
+    <audio id="correct-sequence" src="sounds/correct_sequence.mp3"></audio>
+    <audio id="game-over" src="sounds/game_over.mp3"></audio>
+    <audio id="click" src="sounds/click.mp3"></audio>
+
     <script src="script.js"></script>
 </body>
 </html>
