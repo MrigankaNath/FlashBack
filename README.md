@@ -2,7 +2,6 @@
 
 Think your memory is top-notch? Prove it! FlashBack is a fast-paced, light-up-the-cubes memory game designed to challenge (and maybe frustrate) you. With a modern, clean design, this game is deceptively simple—until the sequences start getting wild.
 
----
 
 ## 🚀 Features
 
@@ -12,7 +11,6 @@ Think your memory is top-notch? Prove it! FlashBack is a fast-paced, light-up-th
 - **Fluid Animations**: Smooth and responsive flashes that make the game feel oh-so-satisfying (even when you lose).
 - **Subtle Sound Effects**: Just enough audio to keep things interesting, but not enough to get you kicked out of the library.
 
----
 
 ## 🎮 How to Play
 
@@ -22,7 +20,6 @@ Think your memory is top-notch? Prove it! FlashBack is a fast-paced, light-up-th
 4. As the game progresses, the sequences grow longer and more intense. Stay sharp!
 5. Make a mistake? Your score will be displayed, and you can press any key to play again.
 
----
 
 ## 🔧 Technical Details
 
@@ -30,7 +27,6 @@ Think your memory is top-notch? Prove it! FlashBack is a fast-paced, light-up-th
 - **Responsive Design**: Whether you’re on a phone, tablet, or that massive desktop monitor, the game adjusts beautifully.
 - **Well-Structured Code**: Modular JavaScript keeps things neat and easy to manage.
 
----
 
 ## 💻 Quick Start Guide
 
@@ -49,7 +45,6 @@ cd FlashBack
 
 Got an idea? Found a bug? Contributions are welcome! Just fork the repo, make your changes, and submit a pull request. Bonus points for adding some humor to your commits.
 
----
 
 ## 📝 License
 
