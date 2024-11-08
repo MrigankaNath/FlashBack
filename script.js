@@ -1,8 +1,8 @@
 // Game configuration
 let gameConfig = {
-    speed: 500,
-    multiplier: 2,
-    flashDuration: 300
+    speed: 800,
+    multiplier: 1,
+    flashDuration: 400
 };
 
 // Game state variables
@@ -11,36 +11,15 @@ let playerSequence = [];
 let cubeFaces = ["crimson", "emerald", "azure", "amber"];
 let gameActive = false;
 let currentStage = 0;
-let currentDifficulty = 'medium';
 
 // DOM elements
 const statusDisplay = document.querySelector("h2");
 
-// Initialize difficulty controls
-function initializeDifficulty() {
-    const buttons = document.querySelectorAll('.difficulty-btn');
-    
-    buttons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Update active button
-            buttons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Update game configuration
-            gameConfig.speed = parseInt(this.dataset.speed);
-            gameConfig.multiplier = parseInt(this.dataset.multiplier);
-            gameConfig.flashDuration = gameConfig.speed * 0.6;
-            
-            // Update difficulty and reset game if active
-            currentDifficulty = this.classList.contains('easy') ? 'easy' : 
-                              this.classList.contains('hard') ? 'hard' : 'medium';
-            
-            if (gameActive) {
-                resetGame();
-            }
-        });
-    });
-}
+// Get the audio elements
+const cubeFlashAudio = document.getElementById('cube-flash');
+const correctSequenceAudio = document.getElementById('correct-sequence');
+const gameOverAudio = document.getElementById('game-over');
+const clickAudio = document.getElementById('click');  
 
 // Game start listener
 document.addEventListener("keypress", function() {
@@ -51,12 +30,11 @@ document.addEventListener("keypress", function() {
 
 // Initialize the game
 document.addEventListener('DOMContentLoaded', function() {
-    initializeDifficulty();
 });
 
 // Start new game
 function startGame() {
-    console.log("Game started on " + currentDifficulty + " difficulty");
+    console.log("Game started");
     gameActive = true;
     currentStage = 0;
     cubeSequence = [];
@@ -65,17 +43,40 @@ function startGame() {
 
 // Visual feedback functions
 function cubeIlluminate(face) {
-    face.classList.add("flash"); 
+    face.classList.add("flash");
+    playCubeFlashSound();  
     setTimeout(function() {
-        face.classList.remove("flash"); 
+        face.classList.remove("flash");
     }, gameConfig.flashDuration);
 }
 
 function playerIlluminate(face) {
-    face.classList.add("user-flash"); 
+    face.classList.add("user-flash");
+    playClickSound();  
     setTimeout(function() {
-        face.classList.remove("user-flash"); 
+        face.classList.remove("user-flash");
     }, gameConfig.flashDuration);
+}
+
+// Play sound effects
+function playCubeFlashSound() {
+    cubeFlashAudio.currentTime = 0;
+    cubeFlashAudio.play();
+}
+
+function playCorrectSequenceSound() {
+    correctSequenceAudio.currentTime = 0;
+    correctSequenceAudio.play();
+}
+
+function playGameOverSound() {
+    gameOverAudio.currentTime = 0;
+    gameOverAudio.play();
+}
+
+function playClickSound() {
+    clickAudio.currentTime = 0;
+    clickAudio.play(); 
 }
 
 // Advance to next stage
@@ -109,31 +110,35 @@ function playFullSequence() {
     }, gameConfig.speed);
 }
 
-// Validate player sequence
+// Validating player sequence
 function validateSequence() {
     let currentIndex = playerSequence.length - 1; 
 
     if (playerSequence[currentIndex] === cubeSequence[currentIndex]) {
         if (playerSequence.length === cubeSequence.length) {
-            setTimeout(advanceStage, 1000);
+            setTimeout(() => {
+                playCorrectSequenceSound();
+                advanceStage();
+            }, 1000);
         }
     } else {
         let finalScore = currentStage * gameConfig.multiplier;
-        statusDisplay.innerHTML = `Game Over! Score: <b>${finalScore}</b> (${currentDifficulty} mode)<br> Press any key to restart`;
+        statusDisplay.innerHTML = `Game Over! Score: <b>${finalScore}</b><br> Press any key to restart`;
         document.body.style.backgroundColor = "#ff6b6b";
         setTimeout(function() {
             document.body.style.backgroundColor = "#f0f0f0";
         }, 200);
+        playGameOverSound();
         resetGame();
     }
 }
 
-// Handle player input
+// Handling player input
 function faceActivated() {
     if (!gameActive) return;
     
     let face = this;
-    playerIlluminate(face);
+    playerIlluminate(face);  
 
     let selectedColor = face.getAttribute("id");
     playerSequence.push(selectedColor);
@@ -153,4 +158,4 @@ function resetGame() {
     cubeSequence = [];
     playerSequence = [];
     currentStage = 0;
-} 
+}
