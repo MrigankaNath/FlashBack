@@ -1,6 +1,6 @@
 # 🌟 FlashBack
 
-Think your memory is top-notch? Prove it! FlashBack is a fast-paced, light-up-the-cubes memory game designed to challenge (and maybe frustrate) you. With a modern, clean design, this game is deceptively simple—until the sequences start getting wild.
+FlashBack is a fast-paced, memory game designed to challenge (and maybe frustrate) you. With a modern, clean design, this game is deceptively simple—until the sequences start getting wild.
 
 
 ## 🚀 Features
